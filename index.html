@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slayer Reign in Blood Bogotá</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Concepto: thrash metal. Negro y rojo sangre, tipografía condensada y brutal, goteo de sangre arriba, grano de fotocopia y los días tachados como marcas en la pared. */
+:root {
+  --bg: #080606;
+  --surface: #120b0b;
+  --line: #3b1116;
+  --fg: #ece4da;
+  --muted: #9a8a84;
+  --blood: #d8142b;
+  --blood-deep: #7a0b17;
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  padding-block: 3.75rem 3rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background-image: radial-gradient(52rem 30rem at 50% 6rem, #d8142b2e, transparent 70%);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+/* grano de fotocopia */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.2 -0.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+/* sangre goteando arriba */
+.blood {
+  position: absolute; top: 0; left: 0; right: 0; height: 44px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'><g fill='%23d8142b'><rect width='240' height='9'/><rect x='18' width='8' height='26' rx='4'/><rect x='64' width='7' height='40' rx='3.5'/><rect x='101' width='9' height='20' rx='4.5'/><rect x='150' width='7' height='32' rx='3.5'/><rect x='196' width='8' height='24' rx='4'/><rect x='224' width='6' height='15' rx='3'/></g></svg>");
+  background-repeat: repeat-x;
+  background-size: 240px 44px;
+}
+.wrap { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem; position: relative; }
+.top { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
+.poster { width: 100%; height: auto; display: block; border: 2px solid var(--blood-deep); box-shadow: 0 0 2.5rem #d8142b55, 0 0 0 5px var(--bg), 0 0 0 6px var(--line); }
+.eyebrow { font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blood); margin: 0; font-size: 1rem; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0.25rem 0 0.9rem;
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+h1 .band { display: block; font-size: clamp(1.4rem, 5vw, 2rem); letter-spacing: 0.3em; color: var(--fg); margin-bottom: 0.35rem; }
+h1 .album { display: block; font-size: clamp(2.7rem, 10vw, 4.6rem); color: var(--blood); text-shadow: 3px 3px 0 #000, 0 0 1.5rem #d8142b66; }
+.lineup { margin: 0 0 1.1rem; padding: 0; list-style: none; color: var(--muted); display: flex; flex-direction: column; gap: 0.1rem; }
+.lineup b { color: var(--fg); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.sub { margin: 0 0 1rem; font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.music {
+  font: inherit; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg);
+  background: transparent; border: 2px solid var(--blood); padding: 0.55rem 1.1rem; cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 94% 100%, 0 100%);
+}
+.music:hover { background: #d8142b33; }
+.music:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.music[aria-pressed="true"] { background: var(--blood); color: #fff; }
+.hint { margin: 0.6rem 0 0; font-size: 0.95rem; color: var(--muted); }
+.clock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
+.unit { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--blood); padding: 1rem 0.4rem 0.8rem; text-align: center; min-width: 0; }
+.num { font-family: var(--font-display); font-size: clamp(2.3rem, 11vw, 4.6rem); line-height: 1; font-variant-numeric: tabular-nums; display: block; text-shadow: 2px 2px 0 #000; }
+.unit:first-child .num { color: var(--blood); text-shadow: 2px 2px 0 #000, 0 0 1.25rem #d8142b88; }
+.lab { display: block; margin-top: 0.5rem; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.done { display: none; border: 2px solid var(--blood); padding: 1.25rem; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; text-align: center; color: var(--blood); }
+.is-done .clock { display: none; }
+.is-done .done { display: block; }
+.days h2 { font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.75rem; font-weight: 600; }
+.strip { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0.4rem; margin: 0; padding: 0; list-style: none; }
+.strip li { text-align: center; font-size: 0.95rem; color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 600; }
+.strip .dot { display: block; height: 1.7rem; border: 1px solid var(--line); background: var(--surface); margin-bottom: 0.3rem; }
+/* día pasado: tachado como una marca en la pared */
+.strip .past .dot {
+  border-color: var(--blood-deep);
+  background-image:
+    linear-gradient(to top right, transparent calc(50% - 1.5px), var(--blood) calc(50% - 1.5px), var(--blood) calc(50% + 1.5px), transparent calc(50% + 1.5px)),
+    linear-gradient(to top left, transparent calc(50% - 1.5px), var(--blood) calc(50% - 1.5px), var(--blood) calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.strip .today .dot { background: var(--blood); border-color: var(--blood); }
+.strip .today { color: var(--fg); }
+.strip .show .dot { border: 2px solid var(--blood); box-shadow: 0 0 0.9rem #d8142b88; }
+.strip .show { color: var(--blood); font-weight: 700; }
+@media (max-width: 620px) {
+  .top { grid-template-columns: minmax(0, 1fr); }
+  .poster { max-width: 20rem; margin: 0 auto; }
+  .strip li { font-size: 0.78rem; }
+  .unit { padding-inline: 0.2rem; }
+  .lab { letter-spacing: 0.12em; font-size: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<div class="blood" aria-hidden="true"></div>
+<main class="wrap" id="root">
+  <section class="top">
+    <img class="poster" src="poster.png" width="447" height="431" alt="Afiche de Slayer, Reign in Blood tocado en su totalidad, con Kreator y Ultra Legends. Bogotá, 5 de diciembre.">
+    <div>
+      <p class="eyebrow">Bogotá · 5 de diciembre de 2026</p>
+      <h1><span class="band">Slayer</span><span class="album">Reign in Blood</span></h1>
+      <ul class="lineup">
+        <li><b>Celebrando 40 años</b>, tocado en su totalidad</li>
+        <li>También: <b>Kreator</b></li>
+        <li><b>¡La vamos a pasar una chimba!</b></li>
+      </ul>
+      <p class="sub" id="sub">Faltan pocos días.</p>
+      <button class="music" id="music" type="button" aria-pressed="false">Poner música</button>
+      <audio id="audio" src="musica.mp3" loop preload="auto"></audio>
+      <p class="hint" id="hint" hidden>Toca la pantalla para activar el sonido.</p>
+    </div>
+  </section>
+
+  <section aria-label="Cuenta regresiva">
+    <div class="clock">
+      <div class="unit"><span class="num" id="d">00</span><span class="lab">Días</span></div>
+      <div class="unit"><span class="num" id="h">00</span><span class="lab">Horas</span></div>
+      <div class="unit"><span class="num" id="m">00</span><span class="lab">Minutos</span></div>
+      <div class="unit"><span class="num" id="s">00</span><span class="lab">Segundos</span></div>
+    </div>
+    <div class="done">Hoy es el día. Que empiece el ruido.</div>
+  </section>
+
+  <section class="days">
+    <h2>Del 24 de noviembre al 5 de diciembre</h2>
+    <ol class="strip" id="strip"></ol>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var root = document.getElementById("root");
+  var subEl = document.getElementById("sub");
+  var strip = document.getElementById("strip");
+  var els = { d: document.getElementById("d"), h: document.getElementById("h"), m: document.getElementById("m"), s: document.getElementById("s") };
+  // Cuenta hasta el inicio del 5 de diciembre de 2026 en Bogotá (UTC-5, la medianoche son las 05:00 UTC).
+  function target() { return Date.UTC(2026, 11, 5, 5, 0, 0); }
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+  function buildStrip() {
+    var frag = document.createDocumentFragment();
+    var now = new Date(Date.now() - 5 * 3600000);
+    var todayKey = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    for (var i = 0; i < 12; i++) {
+      var dayKey = Date.UTC(2026, 10, 24 + i);
+      var li = document.createElement("li");
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      li.appendChild(dot);
+      li.appendChild(document.createTextNode(String(new Date(dayKey).getUTCDate())));
+      if (i === 11) li.className = "show";
+      else if (dayKey < todayKey) li.className = "past";
+      else if (dayKey === todayKey) li.className = "today";
+      frag.appendChild(li);
+    }
+    strip.innerHTML = "";
+    strip.appendChild(frag);
+  }
+
+  function render() {
+    var diff = target() - Date.now();
+    if (diff <= 0) {
+      root.classList.add("is-done");
+      subEl.textContent = "Ya llegó el momento.";
+      return;
+    }
+    root.classList.remove("is-done");
+    var total = Math.floor(diff / 1000);
+    var d = Math.floor(total / 86400);
+    els.d.textContent = pad(d);
+    els.h.textContent = pad(Math.floor((total % 86400) / 3600));
+    els.m.textContent = pad(Math.floor((total % 3600) / 60));
+    els.s.textContent = pad(total % 60);
+    subEl.textContent = d === 0 ? "Es hoy." : d === 1 ? "Falta 1 día." : "Faltan " + d + " días.";
+  }
+
+  // Música: intenta sonar sola al abrir la página. Los navegadores bloquean el sonido
+  // automático hasta que la persona toca la pantalla; si lo bloquean, arranca con el
+  // primer toque, clic o tecla. El botón sirve para pausar y volver a poner.
+  var audio = document.getElementById("audio");
+  var btn = document.getElementById("music");
+  var hint = document.getElementById("hint");
+  var userPaused = false;
+  var evs = ["pointerdown", "touchend", "keydown"];
+  function setPlaying(on) {
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.textContent = on ? "Pausar música" : "Poner música";
+  }
+  function unbind() {
+    evs.forEach(function (ev) { document.removeEventListener(ev, onGesture); });
+    hint.hidden = true;
+  }
+  function start() {
+    if (userPaused) return;
+    var p = audio.play();
+    if (p && p.then) {
+      p.then(function () { setPlaying(true); unbind(); })
+       .catch(function () { setPlaying(false); if (!userPaused) hint.hidden = false; });
+    } else { setPlaying(true); unbind(); }
+  }
+  function onGesture(ev) {
+    if (ev && btn.contains(ev.target)) return; // el botón maneja su propio toque
+    start();
+  }
+  evs.forEach(function (ev) { document.addEventListener(ev, onGesture); });
+  btn.addEventListener("click", function () {
+    if (audio.paused) { userPaused = false; start(); }
+    else { userPaused = true; audio.pause(); setPlaying(false); unbind(); }
+  });
+  start();
+
+  buildStrip();
+  render();
+  setInterval(render, 1000);
+  setInterval(buildStrip, 600000);
+})();
+</script>
+
+</html>
